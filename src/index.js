@@ -1,17 +1,59 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import { render } from "react-dom";
+import Shop from "./Shop";
+import Button from "./components/Button"
+import Title from "./components/Title";
+import styled, {createGlobalStyle} from "styled-components"
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const Global = createGlobalStyle`
+:root {
+  --primary: #0000ff;
+  --secondary: #5efc8d;
+  --light-gray: #cccccc;
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+body {
+  font-family: Helvetica;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+}
+`;
+
+const WrapperDiv = styled.div`
+  padding-top: 5px;
+  width: 100vw;
+  margin: 0 auto;
+`;
+
+function App() {
+  const [login, setLogin] = useState(false);
+
+  if (login) {
+    return (
+      <>
+        <WrapperDiv>
+        <Shop />
+        <Button onClick={() => setLogin(false)}>
+          Выйти
+        </Button>
+        </WrapperDiv>
+      </>
+    );
+  } else {
+    return (
+      <>
+      <WrapperDiv>
+        <Title>Нужно залогиниться!</Title>
+        <Button onClick={() => setLogin(true)}>
+          Войти
+        </Button>
+        </WrapperDiv>
+      </>
+    );
+  }
+}
+
+render(<><Global /><App /></>, document.querySelector("#root"));
