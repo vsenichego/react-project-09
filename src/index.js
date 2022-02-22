@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
 import Shop from "./Shop";
-import Button from "./components/Button"
+import Button from "./components/Button";
 import Title from "./components/Title";
-import styled, {createGlobalStyle} from "styled-components"
+import styled, {createGlobalStyle} from "styled-components";
 
 const Global = createGlobalStyle`
 :root {

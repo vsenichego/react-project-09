@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ButtonItem from "./ButtonItem"
+import ButtonItem from "./ButtonItem";
 
 const WrapperDiv = styled.div`
   .item-info {
